@@ -1,0 +1,36 @@
+name: Ingest Reels
+
+on:
+  workflow_dispatch:
+    inputs:
+      batch:
+        description: "Batch name such as batch_001"
+        required: true
+      input_dir:
+        description: "Folder path on runner"
+        required: false
+        default: "./imports/reels"
+      dry_run:
+        description: "Skip uploads and DB inserts"
+        required: false
+        default: "true"
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Ingest reel batch
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            python scripts/ingest_reels.py --batch "${{ github.event.inputs.batch }}" --input "${{ github.event.inputs.input_dir }}" --dry-run
+          else
+            python scripts/ingest_reels.py --batch "${{ github.event.inputs.batch }}" --input "${{ github.event.inputs.input_dir }}"
+          fi

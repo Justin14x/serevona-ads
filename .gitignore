@@ -1,0 +1,12 @@
+.DS_Store
+.venv/
+__pycache__/
+*.pyc
+.env
+state/*.json
+state/canva_oauth_session.json
+state/canva_tokens.json
+state/youtube_oauth.json
+outputs/
+assets/images/xlsx_imports/
+imports/reels/*.mp4

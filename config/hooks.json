@@ -1,0 +1,30 @@
+[
+  {
+    "id": "hook_001",
+    "text": "POV: you finally let the noise in your head go quiet for a minute...",
+    "category": "relief",
+    "enabled": true,
+    "weight": 1.0
+  },
+  {
+    "id": "hook_002",
+    "text": "POV: the rain outside sounds like permission to stop performing...",
+    "category": "relief",
+    "enabled": true,
+    "weight": 1.0
+  },
+  {
+    "id": "hook_003",
+    "text": "POV: your body remembers what calm feels like again...",
+    "category": "reset",
+    "enabled": true,
+    "weight": 0.9
+  },
+  {
+    "id": "hook_004",
+    "text": "POV: you disappear into a rainy little life reset...",
+    "category": "escape",
+    "enabled": true,
+    "weight": 0.8
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "id": "sub_001",
+    "text": "how badly did you need this today?",
+    "category": "self_reflection",
+    "enabled": true,
+    "weight": 1.0
+  },
+  {
+    "id": "sub_002",
+    "text": "would you stay here until your mind felt lighter?",
+    "category": "escape",
+    "enabled": true,
+    "weight": 0.9
+  },
+  {
+    "id": "sub_003",
+    "text": "what would this rain help you let go of?",
+    "category": "comment_bait",
+    "enabled": true,
+    "weight": 0.9
+  },
+  {
+    "id": "sub_004",
+    "text": "how long would you sit here before checking your phone again?",
+    "category": "comment_bait",
+    "enabled": true,
+    "weight": 0.8
+  }
+]

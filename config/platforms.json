@@ -1,0 +1,29 @@
+{
+  "instagram": {
+    "daily_count": 6,
+    "caption_patterns": [
+      "Some days you just need rain. \ud83c\udf27\ufe0f",
+      "A quiet place to breathe. \ud83c\udf27\ufe0f"
+    ],
+    "reuse_across_platforms": true,
+    "enabled": true
+  },
+  "tiktok": {
+    "daily_count": 2,
+    "caption_patterns": [
+      "Some days you just need rain. \ud83c\udf27\ufe0f",
+      "Would you stay here for a while? \ud83c\udf27\ufe0f"
+    ],
+    "reuse_across_platforms": false,
+    "enabled": true
+  },
+  "youtube": {
+    "daily_count": 6,
+    "caption_patterns": [
+      "POV rain escape #shorts",
+      "A calm rainy reset #shorts"
+    ],
+    "reuse_across_platforms": true,
+    "enabled": true
+  }
+}

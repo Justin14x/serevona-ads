@@ -1,0 +1,38 @@
+name: Retry Or Reset Reel Status
+
+on:
+  workflow_dispatch:
+    inputs:
+      reel_id:
+        description: "Reel UUID"
+        required: true
+      platform:
+        description: "instagram | youtube | tiktok"
+        required: true
+      reset:
+        description: "Reset to pending"
+        required: false
+        default: "true"
+      status:
+        description: "Optional explicit status when reset=false"
+        required: false
+
+jobs:
+  retry:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Update reel status
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          if [ "${{ github.event.inputs.reset }}" = "true" ]; then
+            python scripts/mark_status.py --reel-id "${{ github.event.inputs.reel_id }}" --platform "${{ github.event.inputs.platform }}" --reset
+          else
+            python scripts/mark_status.py --reel-id "${{ github.event.inputs.reel_id }}" --platform "${{ github.event.inputs.platform }}" --status "${{ github.event.inputs.status }}"
+          fi
